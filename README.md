@@ -1,6 +1,6 @@
 # ZILLOW PRICING API DOCUMENTATION
 
-/properties
+endpoint: /properties
 
 CREATE
 
@@ -25,7 +25,7 @@ Route: '/api/v1/properties/:id' will delete listing of property.
 Example: '/api/v1/properties/1' will delete property listing of id 1.
 
 
-/agents
+endpoint: /agents
 
 CREATE
 
