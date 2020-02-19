@@ -7,8 +7,7 @@ CREATE UNLOGGED TABLE agents (
   profile_img VARCHAR(200),
   reviews_count INT,
   recent_sales INT,
-  property_id INT[] DEFAULT ARRAY[]::INT[],
-  data jsonb NOT NULL
+  property_id INT[] DEFAULT ARRAY[]::INT[]
 );
 
 CREATE UNLOGGED TABLE properties (
@@ -23,9 +22,8 @@ CREATE UNLOGGED TABLE properties (
   state VARCHAR(2),
   status VARCHAR(30),
   tour_active BOOLEAN,
-  owner_id INT,
-  agent_id INT[] DEFAULT ARRAY[]::INT[],
-  data jsonb NOT NULL
+  owner_id INT REFERENCES agents(aid),
+  agent_id INT[] DEFAULT ARRAY[]::INT[]
 );
 
 
