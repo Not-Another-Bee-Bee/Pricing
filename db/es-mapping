@@ -1,0 +1,81 @@
+PUT 'Server_URL/zilloq/_mapping/listings'
+
+{
+  "listings": {
+      "properties": {
+        price: {
+          "type": "string"
+        },
+        beds: {
+          "type": "string"
+        },
+        baths: {
+          "type": "string"
+        },
+        sqft: {
+          "type": "string"
+        },
+        address: {
+          "type": "string"
+        },
+        zip: {
+          "type": "string"
+        },
+        city: {
+          "type": "string"
+        },
+        state: {
+          "type": "string"
+        },
+        status: {
+          "type": "string"
+        },
+        tour_active: {
+          "type": "string"
+        },
+        owner_id: {
+          "type": "number"
+        },
+        agent_id: {
+          "type": "array"
+        },
+      }
+    }
+  }
+}
+
+PUT 'Server_URL/zilloq/_mapping/agents'
+{
+  "agents": {
+    "properties" : {
+      "name": {
+        "properties": {
+          "first": {
+            "type": "string"
+          },
+          "last": {
+            "type": "string"
+          }
+        }
+      },
+      phone_number: {
+        "type": "string"
+      },
+      profile_img: {
+        "type": "string"
+      },
+      reviews_count: {
+        "type": "string"
+      },
+      recent_sales: {
+        "type": "string"
+      },
+      recent_sales: {
+        "type": "string"
+      },
+      property_id: {
+        "type": "array"
+      }
+    }
+  }
+}
