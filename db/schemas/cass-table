@@ -1,0 +1,38 @@
+# turdurken keyspace
+CREATE KEYSPACE IF NOT EXISTS turdurken
+WITH replication = {
+  'class':'SimpleStrategy',
+  'replication_factor': '3'
+};
+
+# agents table
+CREATE TABLE IF NOT EXISTS turdurken.agents (
+  aid INT,
+  first_name TEXT,
+  last_name TEXT,
+  role TEXT,
+  phone TEXT,
+  profile_img TEXT,
+  reviews_count TEXT,
+  recent_sales TEXT,
+  property_id set<INT>,
+  PRIMARY KEY(aid)
+);
+
+# properties table
+CREATE TABLE IF NOT EXISTS turdurken.properties (
+  pid uuid,
+  price INT,
+  beds INT,
+  baths FLOAT,
+  sqft INT,
+  address TEXT,
+  zip TEXT,
+  city TEXT,
+  state TEXT,
+  status TEXT,
+  tour_active BOOLEAN,
+  owner_id uuid,
+  agent_id set<INT>,
+  PRIMARY KEY(pid)
+);

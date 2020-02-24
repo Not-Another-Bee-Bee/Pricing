@@ -33,7 +33,7 @@ class SummaryLine3 extends React.Component {
   //   });
   // }
 
-  showPopupOnClick() {    
+  showPopupOnClick() {
     // show popup
     this.setState({popup: true}, () => {
       this.setState((state) => {
@@ -70,7 +70,7 @@ class SummaryLine3 extends React.Component {
   }
 
   render() {
-    let popup = this.state.popup ? 
+    let popup = this.state.popup ?
                 <Popup popupLeft={this.state.popupLeft} popupTop={this.state.popupTop} popupWidth={this.state.popupWidth} hidePopupOnClick={this.hidePopupOnClick}/>
                 : '';
 
@@ -80,9 +80,9 @@ class SummaryLine3 extends React.Component {
         <Vdivider/>
         <span id="summary_zestimate">
           <Zestimate ref={this.zestRef} onClick={this.showPopupOnClick}>
-            Zestimate<sup>®</sup>: 
+            Zestimate<sup>®</sup>:
           </Zestimate>
-          &nbsp;${this.props.zestimate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          &nbsp;$10,420
         </span>
         {popup}
       </LineWrapper>

@@ -1,7 +1,8 @@
 const faker = require("faker");
 
-const generateAgent = () => {
+const generateAgent = (id) => {
   let agent = {
+    // aid: id,
     first_name: faker.fake("{{name.firstName}}"),
     last_name: faker.fake("{{name.lastName}}"),
     role: ["Recent sales", "Listing agent"][Math.floor(Math.random() * 2)],
@@ -16,9 +17,10 @@ const generateAgent = () => {
   return agent;
 };
 
-const generateProperty = () => {
+const generateProperty = (id) => {
   let randomVal = Math.random();
   let property = {
+    pid: id,
     price: faker.fake("{{commerce.price}}") * 10 ** 4,
     beds: Math.ceil(Math.random() * 6),
     baths: Math.ceil(Math.random() * 7) / 2,
