@@ -35,22 +35,23 @@ const getPropertyById = (req, res) => {
   const pid = parseInt(req.params.id);
   pool.query('SELECT * FROM properties WHERE pid = $1', [pid], (err, result) => {
     if (err) {
-      // throw err;
+      throw err;
     }
     res.status(200).json(result.rows);
   })
 }
 
 const addNewProperty = (req, res) => {
-  const { price, beds, baths, sqft, address, zip, city, state, status, tour_active, owner_id } = req.body;
+  const { price, beds, baths, sqft, address, zip, city, state, status, tour_active, owner_id, agent_id } = req.body;
+
   pool.query(`INSERT INTO properties
   (price, beds, baths, sqft, address, zip, city, state, status, tour_active, owner_id, agent_id)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
-  [price, beds, baths, sqft, address, zip, city, state, status, tour_active, owner_id], (err, result) => {
+  [price, beds, baths, sqft, address, zip, city, state, status, tour_active, owner_id, agent_id], (err, result) => {
     if (err) {
       throw err;
     }
-    console.log(res.status(200).json(result.rows));
+    res.status(200).json(result.rows);
   })
 }
 
